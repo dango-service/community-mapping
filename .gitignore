@@ -1,0 +1,29 @@
+# Go binaries
+*.exe
+*.exe~
+*.dll
+*.so
+*.dylib
+bin/
+dist/
+
+# OS files
+.DS_Store
+Thumbs.db
+
+# IDEs
+.idea/
+.vscode/
+*.swp
+*.swo
+
+# Generated distribution artifacts and databases
+generated/
+*.db
+*.sqlite
+*.sqlite3
+
+# Local torrent download and inspection lists
+ab_pending_volumes.yaml
+ab_unmatched_series.yaml
+cache/

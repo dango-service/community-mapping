@@ -1,0 +1,34 @@
+# Permitted Enumeration Values and Category Definitions
+
+types:
+  manga: "Serialized or single visual comic medium (Japanese manga, Korean manhwa, Chinese manhua)"
+  novel: "Prose literature (Light novels, Korean/Chinese web novels, serialized fiction)"
+  one_shot: "Single chapter or standalone published work"
+
+formats:
+  manga: "Visual comic of Japanese origin"
+  manhwa: "Visual webtoon or comic of Korean origin"
+  manhua: "Visual comic of Chinese or Taiwanese origin"
+  light_novel: "Japanese light novel publication"
+  web_novel: "Serialized web novel (Korean, Chinese, or Japanese web publication)"
+  one_shot: "Standalone single-issue release"
+
+statuses:
+  auto: "Generated and proposed automatically by the triangulation pipeline"
+  verified: "Reviewed and validated by a human maintainer"
+  disputed: "Conflicting external database links flagged for community investigation"
+
+relation_roles:
+  adaptation_of: "The work adapts an earlier source work (e.g. manhwa adaptation of a web novel)"
+  adapted_into: "The work was adapted into another medium (e.g. light novel adapted into manga)"
+  prequel: "Chronologically or publicationally precedes the subject work"
+  sequel: "Chronologically or publicationally succeeds the subject work"
+  side_story: "Supplementary side story or spinoff in the same universe"
+  spin_off: "Alternative storyline or character spin-off"
+  alternate_version: "Alternative reboot, remake, or retelling of the same premise"
+
+sources:
+  anilist_idmal: "AniList GraphQL schema media.idMal field"
+  kitsu_mappings: "Kitsu API /manga/{id}/mappings resource"
+  jikan_verified: "Jikan (MAL v4) verified endpoint match"
+  manual_audit: "Manual cross-check performed by a maintainer"

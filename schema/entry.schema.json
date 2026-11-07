@@ -1,0 +1,92 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/community-mapping/community-mapping/main/schema/entry.schema.json",
+  "title": "CommunityMappingDataset",
+  "description": "Validation schema for community-mapping dataset files and individual entries.",
+  "oneOf": [
+    {
+      "type": "array",
+      "items": {
+        "$ref": "#/$defs/entry"
+      }
+    },
+    {
+      "$ref": "#/$defs/entry"
+    }
+  ],
+  "$defs": {
+    "entry": {
+      "type": "object",
+      "required": [
+        "title",
+        "type",
+        "mal_id",
+        "anilist_id",
+        "kitsu_id"
+      ],
+      "additionalProperties": false,
+      "properties": {
+        "title": {
+          "type": "string",
+          "minLength": 1,
+          "description": "Canonical title of the work."
+        },
+        "type": {
+          "type": "string",
+          "enum": [
+            "manga",
+            "manhwa",
+            "manhua",
+            "novel",
+            "oneshot"
+          ],
+          "description": "Format category: manga (JP), manhwa (KR), manhua (CN), novel (light/web novel), oneshot."
+        },
+        "mal_id": {
+          "$ref": "#/$defs/idOrIdList",
+          "description": "MyAnimeList Manga ID, or 0 if unmapped / not indexed."
+        },
+        "anilist_id": {
+          "$ref": "#/$defs/idOrIdList",
+          "description": "AniList Manga ID, or 0 if unmapped / not indexed."
+        },
+        "kitsu_id": {
+          "$ref": "#/$defs/idOrIdList",
+          "description": "Kitsu Manga ID, or 0 if unmapped / not indexed."
+        },
+        "volumes": {
+          "type": "object",
+          "additionalProperties": {
+            "type": "integer",
+            "minimum": 1
+          },
+          "description": "Mapping of volume number (e.g. '1') to ending chapter number (e.g. 7)."
+        },
+        "synonyms": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          },
+          "description": "Alternative titles, English/Romaji/Native names, subtitles, or abbreviations."
+        }
+      }
+    },
+    "idOrIdList": {
+      "oneOf": [
+        {
+          "type": "integer",
+          "minimum": 0
+        },
+        {
+          "type": "array",
+          "items": {
+            "type": "integer",
+            "minimum": 1
+          },
+          "minItems": 1,
+          "uniqueItems": true
+        }
+      ]
+    }
+  }
+}
